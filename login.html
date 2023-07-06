@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Login Page</title>
+</head>
+
+<body class="bg-light">
+    <div class="container-fluid">
+
+        <div class="d-flex justify-content-center mt-5">
+            <img src="images/download-removebg-preview.png" style="width:284px; height:100px">
+        </div>
+        <div class="text-center shadow w-50 m-auto">
+            <p class="display-6 fs-3">Login in to facebook</p>
+            <form class="needs-validation" onsubmit="submitValue()">
+                <input type="email" class="form-control mt-2" id="floatingInputInvalidd" placeholder="name@example.com">
+                <span id="demo" class="text-danger mt-3"></span>
+
+                <input type="password" class="form-control mt-2" id="password" placeholder="name@example.com">
+                <span id="demo" class="text-danger mt-3"></span>
+
+
+                <div class="row mt-3">
+                    <div class="col mb-5">
+                        <button class="btn btn-primary w-50 fs-4 fw-bold" type="submit">Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+
+        <script>
+            // function submitValue() {
+            //     let a = document.getElementById('floatingInputInvalidd').value
+            //     let b = document.getElementById('password').value
+            //     if ((a == '' && a.length < 1) || (b == '' && b.length < 2)) {
+            //         document.getElementById('demo').innerHTML = "Email required"
+            //         document.getElementById('pass').innerHTML = "Password required"
+
+            //     } else {
+            //         document.getElementById('demo').innerHTML = ""
+            //         document.getElementById('pass').innerHTML = ""
+            //     }
+            // }
+
+
+            const emailid = document.getElementById("floatingInputInvalidd");
+            const password = document.getElementById("password");
+            const errormsg = document.getElementById("demo");
+
+
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                validation();
+            })
+
+            const validation = () => {
+
+                let emaildidVal = emailid.value.trim()
+                let passwordVal = password.value.trim();
+                let errormsgVar = errormsg.value.trim();
+
+
+                if (emaildidVal === "") {
+                    setErrormsg(emailid, "First Name can not be blank")
+                } else if (emaildidVal.length <= 2) {
+                    setErrormsg(emailid, "firtname min 3 char")
+                }
+                else {
+                    setSuccessmsg(emailid);
+                }
+
+
+
+                function setErrormsg(input, errormsg) {
+                    const Pcontrol = input.parentElement;
+                    const span = Pcontrol.querySelector("demo");
+                    demo.innerText = errormsg;
+                    Pcontrol.className = "pcontrol error"
+
+                }
+                function setSuccessmsg(input) {
+                    const Pcontrol = input.parentElement;
+                    Pcontrol.className = " pcontrol success"
+
+                }
+
+
+
+
+
+            }
+
+
+        </script>
+
+</body>
+
+</html>
